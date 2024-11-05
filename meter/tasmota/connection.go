@@ -254,11 +254,11 @@ func (c *Connection) getPhaseValues(fun func(StatusSNSResponse) Channels) (float
 // SmlPower provides the sml sensor power
 func (c *Connection) SmlPower() (float64, error) {
 	res, err := c.statusSnsG.Get()
-	return float64(res.StatusSNS.SML.PowerCurr), err
+	return float64(res.StatusSNS.LK13BE.PowerCurr), err
 }
 
 // SmlTotalEnergy provides the sml sensor total import energy
 func (c *Connection) SmlTotalEnergy() (float64, error) {
 	res, err := c.statusSnsG.Get()
-	return res.StatusSNS.SML.TotalIn, err
+	return res.StatusSNS.LK13BE.TotalIn, err
 }

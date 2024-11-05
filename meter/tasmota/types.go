@@ -84,10 +84,10 @@ type StatusSNSResponse struct {
 		}
 
 		// SML sensor readings
-		SML struct {
-			TotalIn   float64 `json:"total_in"`
-			TotalOut  float64 `json:"total_out"`
-			PowerCurr int     `json:"power_curr"`
+		LK13BE struct {
+			TotalIn   float64 `json:"energy_total_in"`
+			TotalOut  float64 `json:"energy_total_out"`
+			PowerCurr int     `json:"power"`
 		}
 	}
 }
