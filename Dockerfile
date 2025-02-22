@@ -55,7 +55,13 @@ COPY --from=node /build/dist /build/dist
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
-ARG GOARM=${TARGETVARIANT#v}
+###ARG GOARM=${TARGETVARIANT#v}
+RUN case "${TARGETVARIANT}" in \
+	"armhf") export GOARM='6' ;; \
+	"armv7") export GOARM='6' ;; \
+	"v6") export GOARM='6' ;; \
+	"v7") export GOARM='7' ;; \
+	esac;
 
 RUN RELEASE=${RELEASE} GOOS=${TARGETOS} GOARCH=${TARGETARCH} GOARM=${GOARM} make build
 
